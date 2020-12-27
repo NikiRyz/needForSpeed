@@ -17,9 +17,14 @@ class Car {
         carHtml.style.left = this.x+'px'
         carHtml.style.top = this.y+'px'
     }
+    moveRight=(v=5)=>{
+        this.x+=v
+        this.drawCar()
+    }
 
 }
 const tesla  = new Car(10, 20)
-
-
-tesla.drawCar()
+const ford = new Car(10, 300, 'https://clck.ru/SVezy')
+ford.drawCar()
+setInterval(()=>{tesla.moveRight(1)},10)
+document.addEventListener('keydown', (e)=>{if (e.key==='ArrowRight'){ford.moveRight(10)}})
